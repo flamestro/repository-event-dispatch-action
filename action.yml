@@ -1,0 +1,33 @@
+name: repository-event-dispatch-action
+
+description:
+  "dispatches an event to the repository that you configure"
+
+inputs:
+  token:
+    description: 'PAT Token with repo scope'
+    required: true
+  repository:
+    description: 'Repository to dispatch the event to'
+    required: true
+  owner:
+    description: 'The owner of the repository to dispatch the event to'
+    required: true
+  event:
+    description: 'The event to dispatch'
+    required: true
+  payload:
+    description: 'The event to dispatch'
+    required: false
+    default: '{}'
+
+runs:
+  using: "composite"
+  steps:
+    - name: Dispatch Event
+      shell: bash
+      run: |
+        curl -X POST https://api.github.com/repos/${{ inputs.owner }}/${{ inputs.repository }}/dispatches \
+        -H 'Accept: application/vnd.github.everest-preview+json' \
+        -u ${{ inputs.owner }}:${{ inputs.token }} \
+        --data '{"event_type": ${{ inputs.event }}, "client_payload": ${{ inputs.payload }}}'
