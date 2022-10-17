@@ -30,4 +30,4 @@ runs:
         curl -X POST https://api.github.com/repos/${{ inputs.owner }}/${{ inputs.repository }}/dispatches \
         -H 'Accept: application/vnd.github.everest-preview+json' \
         -u ${{ inputs.owner }}:${{ inputs.token }} \
-        --data '{"event_type": ${{ inputs.event }}, "client_payload": ${{ inputs.payload }}}'
+        --data '{"event_type": "${{ inputs.event }}", "client_payload": ${{ inputs.payload }}}'
