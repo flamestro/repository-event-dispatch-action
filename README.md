@@ -8,8 +8,8 @@ This is helpful if you want to trigger an action in repository A by a change in 
  - name: Dispatch Event
         uses: flamestro/repository-event-dispatch-action@v1.0.1
         with:
-          token: ${{ secrets.PAT_DISPATCH_SERVER_DEPLOYMENT }}
-          event: TRIGGER_DEPLOYMENT
-          repository: ${{ secrets.DEPLOYMENT_REPO }}
-          owner: flamestro
+          token: ${{ secrets.PAT_DISPATCH_EVENT }}
+          event: EVENT_NAME
+          repository: ${{ secrets.REPO }}
+          owner: owner_of_repo_and_username_of_pat
 ```
