@@ -6,7 +6,7 @@ This is helpful if you want to trigger an action in repository A by a change in 
 
 ```yaml
  - name: Dispatch Event
-        uses: flamestro/repository-event-dispatch-action@v1.0.1
+        uses: flamestro/repository-event-dispatch-action@v1.1.0
         with:
           token: ${{ secrets.PAT_DISPATCH_EVENT }}
           event: EVENT_NAME
